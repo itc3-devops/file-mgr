@@ -69,7 +69,7 @@ func CreateFile(path string) {
 	// create file if not exists
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		var file, err = os.Create(path)
-		checkErr(err, "setup - createFile") //okay to call os.exit()
+		
 		defer file.Close()
 	}
 }
@@ -95,7 +95,7 @@ func ReadFile(path string) []byte {
 func MkDir(dir string) {
 	if _, mkDirErr := os.Stat(dir); os.IsNotExist(mkDirErr) {
 		mkDirErr = os.MkdirAll(dir, 0755)
-		checkErr(mkDirErr, "Make directory")
+		
 	}
 
 }
@@ -103,6 +103,6 @@ func MkDir(dir string) {
 // Rmdir : Delete directory from local storage
 func RmDir(dir string) {
 	err := os.RemoveAll(dir)
-	checkErr(err, "generic - label")
+	
 
 }
